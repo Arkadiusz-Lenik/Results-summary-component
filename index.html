@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      font-family: "Hanken Grotesk", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+      font-size: 18px;
+    }
+    main{
+      display: flex;
+      justify-content: center;
+      padding-top: 290px;
+      width: 1440px;
+      height: 100vh;
+      background-color: hsl(221, 100%, 96%, 0.225);
+    }
+    #main-container{
+      display: grid;
+      grid-template-rows: 510px;
+      grid-template-columns: 365px 370px;
+      width: 735px;
+      height: 510px;
+      border-radius: 37.5px;
+      background-color: hsl(0, 0%, 100%);
+      box-shadow: 15px 35px 40px hsl(221, 100%, 96%);
+    }
+    #left-tile{
+      display: flex;
+      flex-direction: column;
+      border-radius: 37.5px;
+      background: linear-gradient(hsl(252, 100%, 65%), hsl(241, 81%, 54%));
+    }
+    #right-tile{
+      display: flex;
+      flex-direction: column;
+    }
+    .left-top{
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: hsl(241, 100%, 89%);
+    }
+    .left-middle{
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .left-middle > .circle{
+      width: 200px;
+      height: 200px;
+      border-radius: 100px;
+      background: linear-gradient(hsla(256, 72%, 46%, 0.90), hsla(241, 72%, 46%, .10) 80%);
+      position: absolute;
+    }
+    .left-middle > p{
+      margin: 5px;
+    }
+    .user-outcome{
+      font-size: 4.5rem;
+      line-height: 60px;
+      font-weight: 800;
+      color: hsl(0, 0%, 100%);
+      z-index: 1;
+    }
+    .overall-outcome{
+      line-height: 18px;
+      color: hsl(241, 100%, 89%);
+    }
+    .left-bottom{
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .left-bottom > h1{
+      margin: 0;
+      display: flex;
+      align-items: center;
+      color: hsl(0, 0%, 100%);
+      font-size: 32px;
+      flex: 0.40;
+    }
+    .left-bottom > p{
+      margin: 0;
+      padding: 0 50px;
+      text-align: center;
+      font-size: 18px;
+      color: hsl(241, 100%, 89%);
+      flex: 0.60;
+    }
+    .right-top{
+      flex: 0.20;
+      display: flex;
+      align-items: center;
+      padding-left: 42.5px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: hsl(224, 30%, 27%);
+    }
+    .right-middle{
+      display: flex;
+      flex-direction: column;
+      justify-content:space-between;
+      align-items: center;
+      flex: 0.525;
+    }
+    .property{
+      width: 285px;
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .one{
+      background-color: hsl(0, 100%, 67%, 0.05);
+      border-radius: 10px;
+    }
+    .one > .text{
+      color: hsl(0, 100%, 67%);
+    }
+    .two{
+      background-color: hsl(39, 100%, 56%, 0.05);
+      border-radius: 10px;
+    }
+    .two > .text{
+      color: hsl(39, 100%, 56%);
+    }
+    .three{
+      background-color: hsl(166, 100%, 37%, 0.05);
+      border-radius: 10px;
+    }
+    .three > .text{
+      color: hsl(166, 100%, 37%);
+    }
+    .four{
+      background-color: hsl(234, 85%, 45%, 0.05);
+      border-radius: 10px;
+    }
+    .four > .text{
+      color: hsl(234, 85%, 45%);
+    }
+    .icon{
+      flex: 0.175;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .text{
+      flex: 0.45;
+      text-align:left;
+      opacity: 0.90;
+    }
+    .number{
+      flex: 0.375;
+      text-align: center;
+      font-weight: 700;
+    }
+    .grey{
+      color: rgba(128, 128, 128, 0.767);
+    }
+    .right-bottom{
+      flex: 0.275;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .right-bottom > p{
+      width: 285px;
+      height: 55px;
+      background-color: hsl(224, 30%, 27%);
+      border-radius: 27.5px;
+      color: hsl(0, 0%, 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .right-bottom > p:hover{
+      background: linear-gradient(hsl(252, 100%, 65%), hsl(241, 81%, 54%));
+      cursor: pointer;
+    }
+
+    @media (max-width: 735px){
+      main{
+        padding-top: 0;
+        width: 375px;
+        background-color: hsl(0, 0%, 100%);
+      }
+      #main-container{
+        display: flex;
+        flex-direction: column;
+        width: 375px;
+        height: 810px;
+        border-radius: 0;
+        box-shadow: 0 0 0;
+      }
+      #left-tile{
+        flex: 0.438;
+        border-radius: 0 0 37.5px 37.5px;
+      }
+      #right-tile{
+        flex: 0.562;
+      }
+      .left-top{
+        font-size: 1.1rem;
+      }
+      .left-middle > .circle{
+        width: 140px;
+        height: 140px;
+      }
+      .user-outcome{
+        font-size: 3.25rem;
+        line-height: 45px;
+      }
+      .overall-outcome{
+        font-size: 15px;
+      }
+      .left-bottom{
+        position: relative;
+      }
+      .left-bottom > h1{
+        position: absolute;
+        font-size: 23px;
+        top: 20px;
+      }
+      .left-bottom > p{
+        position: absolute;
+        font-size: 15.5px;
+        top: 60px;
+      }
+      .right-top{
+        flex: 0.15;
+        padding-left: 32.5px;
+        font-size: 1.15rem;
+      }
+      .right-middle{
+        flex: 0.60;
+      }
+      .right-bottom{
+        flex: 0.25;
+      }
+      .property{
+        width: 315px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .icon{
+        flex: 0.15;
+      }
+      .text{
+        flex: 0.55;
+      }
+      .number{
+        flex: 0.3;
+      }
+      .right-bottom > p{
+        width: 315px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div id="main-container">
+      <div id="left-tile">
+        <div class="left-top">
+          <p>Your Result</p>
+        </div>
+        <div class="left-middle">
+          <div class="circle"></div>
+          <p class="user-outcome">76</p>
+          <p class="overall-outcome">of 100</p>
+        </div>
+        <div class="left-bottom">
+          <h1>Great</h1>
+          <p>You scored higher than 65% of the people who have taken these tests.</p>
+        </div>
+      </div>
+      <div id="right-tile">
+        <div class="right-top">
+          <p>Summary</p>
+        </div>
+        <div class="right-middle">
+          <div class="property one">
+            <div class="icon"><img src="./assets/images/icon-reaction.svg" alt="reaction icon"></div>
+            <div class="text">Reaction</div>
+            <div class="number">80<span class="grey"> / 100</span></div>
+          </div>
+          <div class="property two">
+            <div class="icon"><img src="./assets/images/icon-memory.svg" alt="memory icon"></div>
+            <div class="text">Memory</div>
+            <div class="number">92<span class="grey"> / 100</span></div>
+          </div>
+          <div class="property three">
+            <div class="icon"><img src="./assets/images/icon-verbal.svg" alt="verbal icon"></div>
+            <div class="text">Verbal</div>
+            <div class="number">61<span class="grey"> / 100</span></div>
+          </div>
+          <div class="property four">
+            <div class="icon"><img src="./assets/images/icon-visual.svg" alt="visual icon"></div>
+            <div class="text">Visual</div>
+            <div class="number">72<span class="grey"> / 100</span></div>
+          </div>
+        </div>
+        <div class="right-bottom">
+          <p>Continue</p>
+        </div>
+      </div>     
+    </div>
+  </main>
+</body>
+
+</html>
